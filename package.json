@@ -1,0 +1,41 @@
+{
+  "name": "babel-plugin-symlink-import",
+  "version": "0.0.0",
+  "description": "An awesome package",
+  "keywords": [],
+  "homepage": "https://github.com/vinsonchuong/babel-plugin-symlink-import",
+  "bugs": "https://github.com/vinsonchuong/babel-plugin-symlink-import/issues",
+  "license": "MIT",
+  "author": "Vinson Chuong <vinsonchuong@gmail.com>",
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.js",
+  "bin": "./src/bin/babel-plugin-symlink-import.js",
+  "repository": "vinsonchuong/babel-plugin-symlink-import",
+  "scripts": {
+    "test": "standard -v --fix && flow && ava",
+    "prepack": "build-esm"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "babel-preset-diff": "^0.0.4",
+    "babel-register": "^6.24.1",
+    "build-esm": "^3.1.0",
+    "flow-bin": "^0.51.1",
+    "standard-esnext": "^3.0.1"
+  },
+  "babel": {
+    "presets": [
+      "diff"
+    ]
+  },
+  "ava": {
+    "concurrency": 8,
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  }
+}

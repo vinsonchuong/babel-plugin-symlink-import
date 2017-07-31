@@ -1,0 +1,9 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[options]
+module.name_mapper='^babel-plugin-symlink-import$' -> '<PROJECT_ROOT>'
+module.name_mapper='^babel-plugin-symlink-import\/\(.*\)$' -> '<PROJECT_ROOT>/\1'
