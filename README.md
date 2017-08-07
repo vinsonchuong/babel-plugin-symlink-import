@@ -29,7 +29,7 @@ Given that your `package.json` contains:
 {
   "name": "project",
   "dependencies": {
-    "local-package": "./lib/local-package"
+    "local-package": "link:./lib/local-package"
   }
 }
 ```
