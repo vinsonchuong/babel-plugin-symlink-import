@@ -1,0 +1,11 @@
+{
+  "name": "project",
+  "private": true,
+  "dependencies": {
+    "external": "v1.0.0",
+    "local1": "./lib/local1"
+  },
+  "devDependencies": {
+    "local2": "./lib/local2"
+  }
+}
