@@ -78,10 +78,17 @@ function readLocalDependencies(packageJson): { [string]: string } {
   return Object.keys(dependencies).reduce(
     (localDependencies, name) =>
       isLocalPackagePath(dependencies[name])
-        ? { ...localDependencies, [name]: dependencies[name] }
+        ? {
+            ...localDependencies,
+            [name]: parseLocalPackagePath(dependencies[name])
+          }
         : localDependencies,
     {}
   )
+}
+
+function parseLocalPackagePath(localPackagePath: string): string {
+  return localPackagePath.replace(/^.*?:/, '')
 }
 
 function resolveRelativePath(fromPath: string, toPath: string) {
