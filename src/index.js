@@ -36,28 +36,30 @@ export default function() {
           return
         }
 
-        const {
-          path: packageJsonPath,
-          data: packageJson
-        } = findNearestPackageJsonSync(sourceFilePath)
-        const localDependencies = readLocalDependencies(packageJson)
-        const projectPath = path.dirname(packageJsonPath)
-        const importedModuleName = importedPath.split(path.sep)[0]
+        try {
+          const {
+            path: packageJsonPath,
+            data: packageJson
+          } = findNearestPackageJsonSync(sourceFilePath)
+          const localDependencies = readLocalDependencies(packageJson)
+          const projectPath = path.dirname(packageJsonPath)
+          const importedModuleName = importedPath.split(path.sep)[0]
 
-        if (!(importedModuleName in localDependencies)) {
-          return
-        }
+          if (!(importedModuleName in localDependencies)) {
+            return
+          }
 
-        const importedModuleRootPath = localDependencies[importedModuleName]
-        const importedPathRelativeToProjectPath = path.join(
-          importedModuleRootPath,
-          ...importedPath.split(path.sep).slice(1)
-        )
+          const importedModuleRootPath = localDependencies[importedModuleName]
+          const importedPathRelativeToProjectPath = path.join(
+            importedModuleRootPath,
+            ...importedPath.split(path.sep).slice(1)
+          )
 
-        astPath.node.source.value = resolveRelativePath(
-          path.dirname(sourceFilePath),
-          path.join(projectPath, importedPathRelativeToProjectPath)
-        )
+          astPath.node.source.value = resolveRelativePath(
+            path.dirname(sourceFilePath),
+            path.join(projectPath, importedPathRelativeToProjectPath)
+          )
+        } catch (error) {}
       }
     }
   }
