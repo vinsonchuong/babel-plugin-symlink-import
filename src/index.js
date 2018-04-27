@@ -82,9 +82,13 @@ function isLocalPackagePath(versionOrUrlOrPath: string): boolean {
   )
 }
 
-function readMyLinksFile(myLinksFilePath): { [string]: string } {
-  return JSON.parse(fs.readFileSync(myLinksFilePath, { encoding: 'utf8' }))
-    .links
+function readMyLinksFile(myLinksFilePath): { [string]: ?string } {
+  try {
+    return JSON.parse(fs.readFileSync(myLinksFilePath, { encoding: 'utf8' }))
+      .links
+  } catch (err) {
+    return {}
+  }
 }
 
 function readLocalDependencies(packageJson, myLinksFile): { [string]: string } {
