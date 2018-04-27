@@ -14,6 +14,7 @@ test('rewrites import paths', async t => {
       import external from 'external';
       import local1 from './lib/local1';
       import local2 from './lib/local2';
+      import anotherExternal from 'anotherExternal';
     `
   )
 })

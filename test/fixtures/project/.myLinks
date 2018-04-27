@@ -1,0 +1,6 @@
+{
+  "links": {
+    "local2": "link:./lib/local2",
+    "local1": "link:./lib/local1"
+  }
+}

@@ -3,9 +3,10 @@
   "private": true,
   "dependencies": {
     "external": "v1.0.0",
-    "local1": "./lib/local1"
+    "local1": "v1.0.1"
   },
   "devDependencies": {
-    "local2": "link:./lib/local2"
+    "local2": "v1.1.1",
+    "anotherExternal": "v0.1.0"
   }
 }
