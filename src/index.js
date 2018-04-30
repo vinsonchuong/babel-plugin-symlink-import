@@ -82,7 +82,7 @@ function isLocalPackagePath(versionOrUrlOrPath: string): boolean {
   )
 }
 
-function readMyLinksFile(myLinksFilePath): { [string]: ?string } {
+function readMyLinksFile(myLinksFilePath): { [string]: string } {
   try {
     return JSON.parse(fs.readFileSync(myLinksFilePath, { encoding: 'utf8' }))
       .links
