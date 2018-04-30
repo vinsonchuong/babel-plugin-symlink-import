@@ -1,6 +1,7 @@
 /* @flow */
 import * as path from 'path'
 import { findNearestPackageJsonSync } from 'find-nearest-package-json'
+import * as fs from 'fs'
 
 type AstPath = {
   node: {
@@ -32,6 +33,9 @@ export default function() {
         const importedPath = astPath.node.source.value
         const sourceFilePath = astState.file.opts.filename
 
+        let myLinksFilePath = ''
+        let myLinks = {}
+
         if (isLocalPackagePath(importedPath)) {
           return
         }
@@ -41,7 +45,14 @@ export default function() {
             path: packageJsonPath,
             data: packageJson
           } = findNearestPackageJsonSync(sourceFilePath)
-          const localDependencies = readLocalDependencies(packageJson)
+
+          myLinksFilePath = findNearestPackageJsonSync(
+            sourceFilePath
+          ).path.replace('package.json', '.myLinks')
+
+          myLinks = readMyLinksFile(myLinksFilePath)
+
+          const localDependencies = readLocalDependencies(packageJson, myLinks)
           const projectPath = path.dirname(packageJsonPath)
           const importedModuleName = importedPath.split(path.sep)[0]
 
@@ -71,22 +82,32 @@ function isLocalPackagePath(versionOrUrlOrPath: string): boolean {
   )
 }
 
-function readLocalDependencies(packageJson): { [string]: string } {
+function readMyLinksFile(myLinksFilePath): { [string]: string } {
+  try {
+    return JSON.parse(fs.readFileSync(myLinksFilePath, { encoding: 'utf8' }))
+      .links
+  } catch (err) {
+    return {}
+  }
+}
+
+function readLocalDependencies(packageJson, myLinksFile): { [string]: string } {
   const dependencies = {
     ...packageJson.dependencies,
     ...packageJson.devDependencies
   }
 
-  return Object.keys(dependencies).reduce(
-    (localDependencies, name) =>
-      isLocalPackagePath(dependencies[name])
-        ? {
-            ...localDependencies,
-            [name]: parseLocalPackagePath(dependencies[name])
-          }
-        : localDependencies,
-    {}
-  )
+  return Object.keys(dependencies).reduce((localDependencies, name) => {
+    if (myLinksFile[name] && isLocalPackagePath(myLinksFile[name])) {
+      dependencies[name] = myLinksFile[name]
+    }
+    return isLocalPackagePath(dependencies[name])
+      ? {
+          ...localDependencies,
+          [name]: parseLocalPackagePath(dependencies[name])
+        }
+      : localDependencies
+  }, {})
 }
 
 function parseLocalPackagePath(localPackagePath: string): string {

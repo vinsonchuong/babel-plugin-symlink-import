@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-symlink-import",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Import and compile local npm packages",
   "keywords": [],
   "homepage": "https://github.com/vinsonchuong/babel-plugin-symlink-import",

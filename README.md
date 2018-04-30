@@ -29,10 +29,19 @@ Given that your `package.json` contains:
 {
   "name": "project",
   "dependencies": {
-    "local-package": "link:./lib/local-package"
+    "local-package": "v0.1.0"
   }
 }
 ```
+
+and you have a `.myLinks` file in the same folder as your `package.json` containing:
+```json
+{
+  "links": {
+    "local-package": "link:./lib/local-package"
+  } 
+}
+``` 
 
 You can import files from the local library:
 
@@ -42,3 +51,5 @@ import localPackage from 'local-package'
 
 and Babel will compile them instead of ignoring them because they are in the
 `node_modules` directory.
+
+As a side-note, when you commit, you can ommit including the `.myLinks` file and everything will still work for your teammates.
