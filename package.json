@@ -20,14 +20,14 @@
     "find-nearest-package-json": "^2.0.1"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
-    "babel-core": "^6.25.0",
-    "babel-preset-diff": "^0.0.4",
-    "babel-register": "^6.24.1",
+    "ava": "^0.25.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-diff": "^2.2.0",
+    "babel-register": "^6.26.0",
     "build-esm": "^3.1.0",
     "dedent": "^0.7.0",
-    "flow-bin": "^0.52.0",
-    "standard-esnext": "^3.0.1"
+    "flow-bin": "0.69.0",
+    "standard-esnext": "^4.0.3"
   },
   "babel": {
     "presets": [

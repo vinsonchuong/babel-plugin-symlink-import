@@ -1,3 +1,4 @@
+/* @flow */
 import test from 'ava'
 import dedent from 'dedent'
 import compile from 'babel-plugin-symlink-import/test/helpers/compile'
