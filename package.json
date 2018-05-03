@@ -20,6 +20,7 @@
     "find-nearest-package-json": "^2.0.1"
   },
   "devDependencies": {
+    "all-contributors-cli": "^4.11.1",
     "ava": "^0.25.0",
     "babel-core": "^6.26.3",
     "babel-preset-diff": "^2.2.0",
