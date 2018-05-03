@@ -1,0 +1,24 @@
+{
+  "projectName": "babel-plugin-symlink-import",
+  "projectOwner": "vinsonchuong",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "coolsebz",
+      "name": "Sebastian Trif",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2954356?v=4",
+      "profile": "https://github.com/coolsebz",
+      "contributions": [
+        "code",
+        "doc",
+        "example"
+      ]
+    }
+  ]
+}

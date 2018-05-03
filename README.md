@@ -53,3 +53,15 @@ and Babel will compile them instead of ignoring them because they are in the
 `node_modules` directory.
 
 As a side-note, when you commit, you can ommit including the `.myLinks` file and everything will still work for your teammates.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/2954356?v=4" width="100px;"/><br /><sub><b>Sebastian Trif</b></sub>](https://github.com/coolsebz)<br />[💻](https://github.com/vinsonchuong/babel-plugin-symlink-import/commits?author=coolsebz "Code") [📖](https://github.com/vinsonchuong/babel-plugin-symlink-import/commits?author=coolsebz "Documentation") [💡](#example-coolsebz "Examples") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
